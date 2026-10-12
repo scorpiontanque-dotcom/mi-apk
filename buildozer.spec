@@ -1,39 +1,22 @@
-name: Build Android APK
+[app]
 
-on:
-  push:
-    branches: [main, master]
-  workflow_dispatch:
+# (str) Title of your application
+title = Mi Aplicación
 
-jobs:
-  build:
-    runs-on: ubuntu-22.04
+# (str) Package name
+package.name = miapk
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+# (str) Package domain (needed for android packaging)
+package.domain = org.test
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
+# (list) Source files to include (let it empty to include all the files)
+source.include_exts = py,png,jpg,kv,atlas
 
-      - name: Install System Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libffi-dev libssl-dev libltdl-dev libsqlite3-dev libgdbm-dev libgdbm-compat-dev liblzma-dev lzma lzma-dev uuid-dev libxml2-dev libxslt1-dev cython3
+# (list) Application requirements
+requirements = python3,kivy
 
-      - name: Install Buildozer and Cython
-        run: |
-          pip install --upgrade pip
-          pip install --upgrade buildozer cython
+# (str) Supported orientations
+orientation = portrait
 
-      - name: Build APK with Buildozer
-        run: |
-          buildozer -v --clean android debug
-
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: mi-apk-debug
-          path: bin/*.apk
+# (bool) Indicate if the application should be fullscreen or not
+fullscreen = 0
