@@ -18,12 +18,19 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Build with Buildozer via Docker
+      - name: Install System Dependencies
         run: |
-          docker run --rm \
-            -v ${{ github.workspace }}:/home/user/hostcwd \
-            kivy/buildozer:latest \
-            bash -c "cd /home/user/hostcwd && buildozer -v android debug"
+          sudo apt-get update
+          sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libffi-dev libssl-dev libltdl-dev libsqlite3-dev libgdbm-dev libgdbm-compat-dev liblzma-dev lzma lzma-dev uuid-dev libxml2-dev libxslt1-dev cython3
+
+      - name: Install Buildozer and Cython
+        run: |
+          pip install --upgrade pip
+          pip install --upgrade buildozer cython
+
+      - name: Build APK with Buildozer
+        run: |
+          buildozer -v android debug
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
