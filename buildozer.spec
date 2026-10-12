@@ -39,3 +39,4 @@ android.ndk = 25b
 
 # (bool) Automatically accept SDK license
 android.accept_sdk_license = True
+
