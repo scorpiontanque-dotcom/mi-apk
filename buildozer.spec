@@ -1,25 +1,17 @@
-[app]
-
 # (str) Title of your application
 title = Mi Aplicacion
 
 # (str) Package name
-package.name = miapk
+package.name = miapli
 
 # (str) Package domain (needed for android packaging)
-package.domain = org.test
+package.domain = org.ex
 
-# (str) Source files where the include files are located
-source.dir = .
-
-# (list) Source files to include (let empty to include all files)
+# (list) Source files to include (let the default or match your structure)
 source.include_exts = py,png,jpg,kv,atlas
 
-# (str) Application versioning
-version = 0.1
-
 # (list) Application requirements
-# comma separated e.g. requirements = sqlite3,kivy
+# Asegúrate de incluir python3, kivy y las librerías necesarias
 requirements = python3,kivy
 
 # (str) Supported orientations
@@ -31,12 +23,8 @@ android.api = 33
 # (int) Minimum API your APK will support.
 android.minapi = 21
 
-# (bool) Indicate whether the application should be full screen or not
-fullscreen = 0
-
 # (str) Android NDK version to use
 android.ndk = 25b
 
-# (bool) Automatically accept SDK license
-android.accept_sdk_license = True
-
+# (bool) Use --private data storage (True) or --dir public storage (False)
+android.private_storage = True
