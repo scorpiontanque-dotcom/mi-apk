@@ -35,3 +35,6 @@ android.ndk = 25b
 
 # (bool) Use --private data storage
 android.private_storage = True
+
+# (bool) Accept SDK license
+android.accept_sdk_license = True
