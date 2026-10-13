@@ -9,8 +9,14 @@ package.name = miapli
 # (str) Package domain (needed for android packaging)
 package.domain = org.ex
 
-# (list) Source files to include
+# (str) Source code where the main.py is located
+source.dir = .
+
+# (list) Source files to include (let the default or match your structure)
 source.include_exts = py,png,jpg,kv,atlas
+
+# (str) Application versioning
+version = 0.1
 
 # (list) Application requirements
 requirements = python3,kivy
