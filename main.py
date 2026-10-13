@@ -1,5 +1,3 @@
 - name: Build APK with Buildozer
-      env:
-        BUILDER_ACCEPT_LICENSES: "1"
       run: |
         yes | buildozer -v android debug
