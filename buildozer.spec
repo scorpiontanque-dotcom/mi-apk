@@ -1,3 +1,5 @@
+[app]
+
 # (str) Title of your application
 title = Mi Aplicacion
 
@@ -7,24 +9,23 @@ package.name = miapli
 # (str) Package domain (needed for android packaging)
 package.domain = org.ex
 
-# (list) Source files to include (let the default or match your structure)
+# (list) Source files to include
 source.include_exts = py,png,jpg,kv,atlas
 
 # (list) Application requirements
-# Asegúrate de incluir python3, kivy y las librerías necesarias
 requirements = python3,kivy
 
 # (str) Supported orientations
 orientation = portrait
 
-# (int) Target Android API, should be as high as possible.
+# (int) Target Android API
 android.api = 33
 
-# (int) Minimum API your APK will support.
+# (int) Minimum API your APK will support
 android.minapi = 21
 
-# (str) Android NDK version to use
+# (str) Android NDK version
 android.ndk = 25b
 
-# (bool) Use --private data storage (True) or --dir public storage (False)
+# (bool) Use --private data storage
 android.private_storage = True
